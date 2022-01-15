@@ -2,64 +2,142 @@ package main
 
 import "fmt"
 
+// func sum(x, y int) int {
+// 	return x + y
+// }
+// func partialSum(x int) func(int) int {
+// 	return func(y int) int {
+// 		return sum(x, y)
+// 	}
+// }
+// func main() {
+// 	partial := partialSum(3)
+// 	fmt.Println(partial(7))
+// }
+//LESSON5 -How to iterate over an Array using for loop?
+func main() {
+	intArray := [5]int{10, 20, 30, 40, 50}
+
+	fmt.Println("\n---------------Example 1--------------------\n")
+	for i := 0; i < len(intArray); i++ {
+		fmt.Println(intArray[i])
+	}
+
+	fmt.Println("\n---------------Example 2--------------------\n")
+	for index, element := range intArray {
+		fmt.Println(index, "=>", element)
+
+	}
+
+	fmt.Println("\n---------------Example 3--------------------\n")
+	for _, value := range intArray {
+		fmt.Println(value)
+	}
+
+	j := 0
+	fmt.Println("\n---------------Example 4--------------------\n")
+	for range intArray {
+		fmt.Println(intArray[j])
+		j++
+	}
+}
+
+// LESSON4 - Map
+// func main() {
+// 	var employee = make(map[string]int)
+// 	employee["Mark"] = 10
+// 	employee["Sandy"] = 20
+// 	employee["Rocky"] = 30
+// 	employee["Josef"] = 40
+// 	fmt.Println(employee)
+
+//How delet of map
+//delete(employee, "Mark")
+
+// Empty Map
+// 	employeeList := make(map[string]int)
+// 	fmt.Println(len(employee))
+// 	fmt.Println(len(employeeList))
+// }
+
+//LESSON3 - Anonymous
+// func sayHi(mssg string) {
+// 	fmt.Println(mssg)
+// }
+// func main() {
+// 	// regular function
+// 	// sayHi("Hello There")
+
+// 	//anonymous function
+// 	func(mssg string) {
+// 		fmt.Println(mssg)
+// 	}("ANONYMOUS")
+// }
+
+// func main() {
+// 	func(l int, b int) {
+// 		fmt.Println(l * b)
+// 	}(20, 30)
+// }
+
 // LESSON 2 Methods
 
-type Person struct {
-	firstname string // name string
-	lastname  string
-	age       int
-	hobbyone  hobby // hobbies []hobby
-	hobbytwo  hobby
-	hobby     //наследование from type hobby all atributes and methods
-}
+// type Person struct {
+// 	firstname string // name string
+// 	lastname  string
+// 	age       int
+// 	hobbyone  hobby // hobbies []hobby
+// 	hobbytwo  hobby
+// 	hobby     //наследование from type hobby all atributes and methods
+// }
 
-func (p Person) Speak() { // var p Person
-	fmt.Printf("Hello, my name is %v\n", p.firstname)
-}
+// func (p Person) Speak() { // var p Person
+// 	fmt.Printf("Hello, my name is %v\n", p.firstname)
+// }
 
-func (p *Person) SetName(name string) { // var p *Person = &Damir
-	p.firstname = name
-}
+// func (p *Person) SetName(name string) { // var p *Person = &Damir
+// 	p.firstname = name
+// }
 
-func (p Person) SetWrongName(name string) { // var p Person = Damir
-	p.firstname = name
-}
+// func (p Person) SetWrongName(name string) { // var p Person = Damir
+// 	p.firstname = name
+// }
 
-type hobby struct {
-	name string
-	like string
-}
+// type hobby struct {
+// 	name string
+// 	like string
+// }
 
-func main() {
-	// var p Person
-	var damir Person
-	damir.name = "football"
-	damir.hobbyone.name = "valeyball"
-	damir.hobbytwo.name = "tennis"
-	damir.SetWrongName("damir")
-	damir.SetName("damir")
-	damir.Speak()
-	// Alika new() => var alika *Person= &Person{}
-	alika := new(Person)
-	alika.SetName("alika")
-	alika.Speak()
+// func main() {
+// 	// var p Person
+// 	var damir Person
+// 	damir.name = "football"
+// 	damir.hobbyone.name = "valeyball"
+// 	damir.hobbytwo.name = "tennis"
+// 	damir.SetWrongName("damir")
+// 	damir.SetName("damir")
+// 	damir.Speak()
+// 	// Alika new() => var alika *Person= &Person{}
+// 	alika := new(Person)
+// 	alika.SetName("alika")
+// 	alika.Speak()
 
-	// Ahat
-	var ahat *Person = &Person{}
-	ahat.SetName("ahat")
-	ahat.Speak()
+// 	// Ahat
+// 	var ahat *Person = &Person{}
+// 	ahat.SetName("ahat")
+// 	ahat.Speak()
 
-	//Almas
-	almas := &Person{}
-	almas.SetName("almas")
-	almas.Speak()
+// 	//Almas
+// 	almas := &Person{}
+// 	almas.SetName("almas")
+// 	almas.Speak()
 
-	//Faiz
-	faiz := Person{}
-	faiz.SetName("faiz")
-	faiz.Speak()
-	fmt.Println(*alika, damir, *ahat, *almas, faiz) // alika = 0x01              ahat = 0x02
-}
+// 	//Faiz
+// 	faiz := Person{}
+// 	faiz.SetName("faiz")
+// 	faiz.Speak()
+// 	fmt.Println(*alika, damir, *ahat, *almas, faiz) // alika = 0x01              ahat = 0x02
+// }
 
 // LESSON 1
 
