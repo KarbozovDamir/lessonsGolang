@@ -1,5 +1,50 @@
 package main
 
+import (
+	"fmt"
+	"time"
+)
+
+//LESSON7 - Gourutine
+// func main() {
+// 	ch := make(chan bool)
+// 	go func() {
+// 		ch <- true
+// 	}()
+// 	<-ch
+
+// }
+func run_10() {
+	fmt.Println("run 10 km")
+	time.Sleep(100 * time.Millisecond)
+}
+func run_40() {
+	fmt.Println("run 40 km")
+	time.Sleep(400 * time.Millisecond)
+}
+func main() {
+	go run_10()
+	go run_40()
+	time.Sleep(1000 * time.Millisecond)
+	fmt.Println("Go")
+}
+
+// func main() {
+
+// 	strArray1 := [3]string{"Japan", "Australia", "Germany"}
+// 	fmt.Printf("strArray1: %v\n", strArray1)
+// 	strArray2 := strArray1  // data is passed by value
+// 	strArray3 := &strArray1 // data is passed by refrence
+
+// 	fmt.Printf("strArray2: %v\n", strArray2)
+
+// 	strArray1[0] = "Canada"
+
+// 	fmt.Printf("strArray1: %v\n", strArray1)
+// 	fmt.Printf("strArray2: %v\n", strArray2)
+// 	fmt.Printf("*strArray3: %v\n", *strArray3)
+// }
+
 // func sum(x, y int) int {
 // 	return x + y
 // }
