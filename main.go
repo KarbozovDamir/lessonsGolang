@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // func sum(x, y int) int {
 // 	return x + y
 // }
@@ -14,33 +12,61 @@ import "fmt"
 // 	partial := partialSum(3)
 // 	fmt.Println(partial(7))
 // }
+
+//LESSON6 Closures Functions
+// func main() {
+// 	l := 3
+// 	k := 4
+// 	func() {
+// 		ares := l + k
+// 		fmt.Println(ares)
+// 	}()
+// }
+
+// func intSeq() func() int {
+// 	i := 1
+// 	return func() int {
+// 		i++
+// 		return i
+// 	}
+// }
+// func main() {
+// 	next := intSeq()
+// 	fmt.Println(next()) // 2
+// 	fmt.Println(&next)  //0xc00000e028
+// 	// second exempl
+// 	next1 := intSeq()
+// 	fmt.Println(next1()) // 2
+// 	fmt.Println(&next)   //0xc00000e028
+// }
+
 //LESSON5 -How to iterate over an Array using for loop?
-func main() {
-	intArray := [5]int{10, 20, 30, 40, 50}
+// func main() {
+// 	intArray := [5]int{10, 20, 30, 40, 50}
 
-	fmt.Println("\n---------------Example 1--------------------\n")
-	for i := 0; i < len(intArray); i++ {
-		fmt.Println(intArray[i])
-	}
+// 	fmt.Println("\n---------------Example 1--------------------\n")
+// 	for i := 0; i < len(intArray); i++ {
+// 		fmt.Println(intArray[i])
+// 	}
 
-	fmt.Println("\n---------------Example 2--------------------\n")
-	for index, element := range intArray {
-		fmt.Println(index, "=>", element)
+// 	fmt.Println("\n---------------Example 2--------------------\n")
+// 	for index, element := range intArray {
+// 		fmt.Println(index, "=>", element)
 
-	}
+// 	}
 
-	fmt.Println("\n---------------Example 3--------------------\n")
-	for _, value := range intArray {
-		fmt.Println(value)
-	}
+// 	fmt.Println("\n---------------Example 3--------------------\n")
+// 	for _, value := range intArray {
+// 		fmt.Println(value)
+// 	}
 
-	j := 0
-	fmt.Println("\n---------------Example 4--------------------\n")
-	for range intArray {
-		fmt.Println(intArray[j])
-		j++
-	}
-}
+// 	j := 0
+// 	fmt.Println("\n---------------Example 4--------------------\n")
+// 	for range intArray {
+// 		fmt.Println(intArray[j])
+// 		j++
+// 	}
+// }
 
 // LESSON4 - Map
 // func main() {
