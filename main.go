@@ -6,31 +6,93 @@ import (
 )
 
 //LESSON7 - Gourutine
+//Ex 0
 // func main() {
 // 	ch := make(chan bool)
 // 	go func() {
 // 		ch <- true
 // 	}()
 // 	<-ch
-
 // }
-func run_10() {
-	fmt.Println("run 10 km")
-	time.Sleep(100 * time.Millisecond)
-}
-func run_40() {
-	fmt.Println("run 40 km")
-	time.Sleep(400 * time.Millisecond)
-}
-func main() {
-	go run_10()
-	go run_40()
-	time.Sleep(1000 * time.Millisecond)
-	fmt.Println("Go")
-}
+
+// Ex 1
+// func run_10() {
+// 	fmt.Println("run 10 km")
+// 	time.Sleep(100 * time.Millisecond)
+// }
+// func run_40() {
+// 	fmt.Println("run 40 km")
+// 	time.Sleep(400 * time.Millisecond)
+// }
+// func main() {
+// 	go run_10()
+// 	go run_40()
+// 	time.Sleep(1000 * time.Millisecond)
+// 	fmt.Println("Go")
+// }
+
+// Ex 2
+// func main() {
+// 	theMine := [5]string{"ore1", "ore2", "ore3"}
+// 	oreChan := make(chan string)
+// 	// Finder
+// 	go func(mine [5]string) {
+// 		for _, item := range mine {
+// 			oreChan <- item //отправить
+// 		}
+// 	}(theMine)
+// 	// Рудодробилка
+// 	go func() {
+// 		for i := 0; i < 3; i++ {
+// 			foundOre := <-oreChan //получить
+// 			fmt.Println("Miner: Получено " + foundOre + " от искателя")
+// 		}
+// 	}()
+// 	<-time.After(time.Second * 5) // Опять же, игнорируем это пока
+// }
+
+//Ex 3
+// func main() {
+
+// 	messages := make(chan string) //create chanel
+
+// 	go func() { messages <- "ping" }() //Send a value into a channel (Здесь мы отправляем "ping" в messages канал)
+
+// 	msg := <-messages //получает значение из канала.
+// 	fmt.Println(msg)
+// }
+
+//Ex 4 with Channel Buffering**
 
 // func main() {
 
+// 	messages := make(chan string, 2)
+
+// 	messages <- "buffered"
+// 	messages <- "channel"
+
+// 	fmt.Println(<-messages)
+// 	fmt.Println(<-messages)
+// }
+// Ex 5 Channel Synchronization
+
+func worker(done chan bool) {
+	fmt.Print("working...")
+	time.Sleep(time.Second)
+	fmt.Println("done")
+
+	done <- true //Send a value to notify that we’re done.
+}
+
+func main() {
+
+	done := make(chan bool, 1) //Start a worker goroutine, giving it the channel to notify on.
+	go worker(done)
+
+	<-done // Block until we receive a notification from the worker on the channel.
+}
+
+// func main() {
 // 	strArray1 := [3]string{"Japan", "Australia", "Germany"}
 // 	fmt.Printf("strArray1: %v\n", strArray1)
 // 	strArray2 := strArray1  // data is passed by value
